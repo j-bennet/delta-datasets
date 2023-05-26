@@ -1,0 +1,14 @@
+# 1. install spark 3.3.2 from https://spark.apache.org/downloads.html
+# 2. install a compatible deltalake version: 2.3.0
+# 3. run pyspark with --packages "com.amazonaws:aws-java-sdk-bundle:1.12.472,io.delta:delta-core_2.12:2.3.0,org.apache.hadoop:hadoop-aws:3.3.2"
+#    and let it download jars to ~/.ivy2
+# 4. copy jars to SPARK_HOME/jars
+# 5. now spark-submit can be run without specifying --packages
+name: delta-datasets
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - deltalake
